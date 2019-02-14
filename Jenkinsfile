@@ -30,7 +30,11 @@ pipeline {
         branch 'master'
       }
       steps {
+        sh "ping github.com"
+        sh "ping jenkins.jx.pramerica.help"
         git 'https://github.com/pra-b-carey/test.git'
+        
+        sh "sleep 180s"
 
         // so we can retrieve the version in later steps
         sh "echo \$(jx-release-version) > VERSION"
